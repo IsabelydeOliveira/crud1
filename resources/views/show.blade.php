@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{url('assets/bootstrap/css/bootstrap.min.css')}}">
 </head>
 <body>
+    <h1 class="text-center">Vizualizar</h1><hr>
     <div class="col-8 m-auto mt-5">
     <table class="table table-bordered">
         <thead>
@@ -35,9 +36,7 @@
             <td>{{$modelo->CEP}}</td>
             <td>{{$modelo->created_at}}</td>
             <td>{{$modelo->updated_at}}</td>
-
-
-          </tr>
+         </tr>
 
         </tbody>
       </table>

@@ -34,7 +34,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $users=$this->objUser->all();
+        return view('create',compact('users'));
     }
 
     /**
@@ -45,7 +46,14 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $cad=$this->objModel01->create([
+        'name'=>$request->name,
+        'cep'=>$request->cep,
+        'id_user'=>$request->id_user
+      ]);
+      if($cad){
+        return redirect('hospital');
+      }
     }
 
     /**
@@ -68,7 +76,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $modelo=$this->objModel01->find($id);
+        $users=$this->objUser->all();
+        return view('create', compact('modelo','users'));
     }
 
     /**
@@ -80,7 +90,12 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->objModel01->where(['id'=>$id])->update([
+            'name'=>$request->name,
+            'cep'=>$request->cep,
+            'id_user'=>$request->id_user
+        ]);
+        return redirect('hospital');
     }
 
     /**
@@ -91,6 +106,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $del= $this->objModel01->destroy($id);
+       return($del)?"sim":"não";
     }
 }

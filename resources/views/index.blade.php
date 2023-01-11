@@ -10,12 +10,13 @@
 <body>
   <h1 class="text-center">crud</h1>
 <div class="text-center mt-3 mb-4">
-<a href="">
+<a href="{{ route('Model01.create') }}">
           <button class="btn btn-success">Cadastrar</button>
         </a>
 </div>
 
  <div class="col-8 m-auto">
+    @csrf
 <table class="table">
   <thead class="table-dark">
     <tr>
@@ -41,10 +42,10 @@
         <a href="{{ route('Model01.show', [$modelos->id]) }}">
           <button class="btn btn-dark">Vizualizar</button>
         </a>
-        <a href="">
+        <a href="{{ route('Model01.edit', [$modelos->id]) }}">
           <button class="btn btn-primary">Editar</button>
         </a>
-        <a href="">
+        <a href="{{ route('Model01.destroy', [$modelos->id]) }}" class="js-del">
           <button class="btn btn-danger">Deltar</button>
         </a>
       </td>
@@ -55,5 +56,6 @@
   </tbody>
 </table>
 <div>
+   <script src="{{url("assets/js/javascript.js")}}"></script>
 </body>
 </html>
